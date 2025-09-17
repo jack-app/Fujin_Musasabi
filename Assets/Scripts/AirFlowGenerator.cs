@@ -7,6 +7,7 @@ public class AirFlowGenerator : MonoBehaviour
     public GameObject AirFlow;
     private Vector3 clickPosition;
     public float AirFlowPower;
+    //気流の強さを伝える用
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +27,7 @@ public class AirFlowGenerator : MonoBehaviour
             Debug.Log(AirFlowPower);
             Debug.Log(clickPosition);
             clickPosition.y = 0;
-            clickPosition.z = 100;
+            clickPosition.z = 100;//カメラに映るようにするため
             Instantiate(AirFlow, Camera.main.ScreenToWorldPoint(clickPosition), AirFlow.transform.rotation);
         }
     }
