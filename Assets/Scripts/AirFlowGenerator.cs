@@ -15,7 +15,7 @@ public class AirFlowGenerator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update()//AirFlow生成
     {
         if (Input.GetMouseButtonDown(0))
         {

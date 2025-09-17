@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c2c185eef34a340a996ab1b3f78e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageSpeed: 0.03
+  StageSpeed: 0.01
   StageRange: 15
   SetPower: 1
   PowerPower: 0.01
