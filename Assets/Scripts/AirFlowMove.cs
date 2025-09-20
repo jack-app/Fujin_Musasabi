@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class AirFlowMove : MonoBehaviour
 {
-    public float StageSpeed = 1.0f;//気流の横に動くスピード調整
+    public float StageSpeed = 1.0f;//気流の横に動くスピード調整（現在未使用）
     public float StageRange = 15.0f;//気流の消える位置調整
     public float SetPower = 1.0f;//それぞれの気流が持つ自身の気流の強さ
     public float PowerPower = 1.0f;//気流の力調製用
-    // Start is called before the first frame update
-    void Start()
+    Animator animator;//Animation用
+    
+    void Start()//component取得
     {
-        
+        animator = GetComponent<Animator>();
     }
     void Awake()//SetPowerをもらう
     {
@@ -19,7 +20,25 @@ public class AirFlowMove : MonoBehaviour
         GameObject obj = GameObject.Find("AirFlowManager");
         airflowgenerator = obj.GetComponent<AirFlowGenerator>();
         SetPower = airflowgenerator.AirFlowPower;
+        airflowgenerator.AirFlowCount += 1;
         Debug.Log(SetPower);
+        if (SetPower > -0.01f && SetPower < 0.01f)//力が小さすぎるときの気流の破壊
+        {
+            airflowgenerator.AirFlowCount += -1;
+            Destroy(gameObject);
+        }
+        if (SetPower > 0)//上下反転、アニメーション関係
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * 1, transform.localScale.z);
+            animator = GetComponent<Animator>();
+            animator.SetFloat("AirFlowAnimationSpeed", SetPower);
+        }
+        else if (SetPower < 0)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y * -1, transform.localScale.z);
+            animator = GetComponent<Animator>();
+            animator.SetFloat("AirFlowAnimationSpeed", SetPower*-1);
+        }
     }
     void OnTriggerStay2D(Collider2D collision)//Playerに力を加える
     {
@@ -29,13 +48,15 @@ public class AirFlowMove : MonoBehaviour
             PlayerRigidBody.AddForce(transform.up * SetPower*PowerPower, ForceMode2D.Impulse);
         }
     }
-
-    // Update is called once per frame
-    void Update()//気流の横移動
+    void Update()//元、気流の横移動、今はカメラ外に出たときの気流の消去
     {
-        transform.Translate(-1 * StageSpeed, 0,0);
-        if (transform.position.x < StageRange * -1)
+        transform.Translate(-1 * StageSpeed, 0, 0);
+        if (transform.position.x < StageRange * -1||!GetComponent<Renderer>().isVisible)
         {
+            AirFlowGenerator airflowgenerator;
+            GameObject obj = GameObject.Find("AirFlowManager");
+            airflowgenerator = obj.GetComponent<AirFlowGenerator>();
+            airflowgenerator.AirFlowCount += -1;
             Destroy(gameObject);
         }
     }
