@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour//Playerを移動させるために作った
+public class MainCameraMove : MonoBehaviour//cameraをx座標だけ追尾させる
 {
+    public GameObject Player;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0.01f, 0, 0);
+        transform.position = new Vector3(Player.transform.position.x+10,0,-10);
     }
 }
