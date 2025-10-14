@@ -20,11 +20,10 @@ public class AirFlowMove : MonoBehaviour
         GameObject obj = GameObject.Find("AirFlowManager");
         airflowgenerator = obj.GetComponent<AirFlowGenerator>();
         SetPower = airflowgenerator.AirFlowPower;
-        airflowgenerator.AirFlowCount += 1;
+        airflowgenerator.AirFlowCameraCount += 1;
         Debug.Log(SetPower);
         if (SetPower > -0.01f && SetPower < 0.01f)//力が小さすぎるときの気流の破壊
         {
-            airflowgenerator.AirFlowCount += -1;
             Destroy(gameObject);
         }
         if (SetPower > 0)//上下反転、アニメーション関係
@@ -56,7 +55,7 @@ public class AirFlowMove : MonoBehaviour
             AirFlowGenerator airflowgenerator;
             GameObject obj = GameObject.Find("AirFlowManager");
             airflowgenerator = obj.GetComponent<AirFlowGenerator>();
-            airflowgenerator.AirFlowCount += -1;
+            airflowgenerator.AirFlowCameraCount += -1;
             Destroy(gameObject);
         }
     }
