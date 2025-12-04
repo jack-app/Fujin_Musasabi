@@ -9,6 +9,9 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private GameObject gameOver;
     [SerializeField] private GameObject resultCanvas;
+    [SerializeField] private int stageNumber;
+    
+    private string stageName;
 
     private PlayerHealth playerHealth;
     private CoinManager coinManager;
@@ -43,6 +46,8 @@ public class GameFlowManager : MonoBehaviour
         GameObject airFlowManager = GameObject.Find("AirFlowManager");
         airFlowGenerator = airFlowManager.GetComponent<AirFlowGenerator>();
         maxAirPower = airFlowGenerator.AirFlowPowerCount;
+
+        stageName = SceneManager.GetActiveScene().name;
 
         StartCoroutine(GameStart());
     }
@@ -93,6 +98,13 @@ public class GameFlowManager : MonoBehaviour
     public IEnumerator GameEnd()
     {
         Debug.Log("ゴール！");
+
+        int stageProgress = PlayerPrefs.GetInt("Progress", 1);
+        if(stageNumber >= stageProgress)
+        {
+            PlayerPrefs.SetInt("Progress", stageNumber+1);
+        }
+
         Time.timeScale = 0;
         restHealth = playerHealth.CurrentHealth;
         maxCoinCount = coinManager.MaxCoin;
@@ -112,7 +124,7 @@ public class GameFlowManager : MonoBehaviour
     public void Retry()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("FaiyakitoriScene");
+        SceneManager.LoadScene($"{stageName}");
     }
     public void BackToMenu()
     {
