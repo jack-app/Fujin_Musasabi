@@ -5,6 +5,8 @@ public class CoinHitter : MonoBehaviour
     private CoinManager coinManager;
 
     [SerializeField] private int coinWait = 1;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip hitSound;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +15,7 @@ public class CoinHitter : MonoBehaviour
         if (gameManager != null)
         {
             coinManager = gameManager.GetComponent<CoinManager>();
+            audioSource = gameManager.GetComponent<AudioSource>();
         }
     }
 
@@ -28,6 +31,7 @@ public class CoinHitter : MonoBehaviour
         {
             Debug.Log("コインをゲット！");
             coinManager.AddCoinCount(coinWait);
+            audioSource.PlayOneShot(hitSound);
             Destroy(this.gameObject);
         }
     }

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageButton : MonoBehaviour
 {
     [SerializeField] private string stageName;
     [SerializeField] private int stageNumber;
     [SerializeField] private GameObject unreachedImage;
+    [SerializeField] private GameObject numberText;
     private int stageProgress;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,14 @@ public class StageButton : MonoBehaviour
         if(stageProgress >= stageNumber)
         {
             unreachedImage.SetActive(false);
+            this.gameObject.GetComponent<Image>().enabled = true;
+            numberText.SetActive(true);
+        }
+        else
+        {
+            unreachedImage.SetActive(true);
+            this.gameObject.GetComponent<Image>().enabled = false;
+            numberText.SetActive(false);
         }
     }
 

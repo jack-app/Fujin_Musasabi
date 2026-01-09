@@ -12,6 +12,10 @@ public class ResultDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinCountText;
     [SerializeField] private TextMeshProUGUI airPowerText;
     [SerializeField] private TextMeshProUGUI rankText;
+
+    [Header("ボタン")]
+    [SerializeField] private GameObject returnButtonSeal;
+
     [Header("評価基準")]
     [SerializeField] private float[] criterion = { 0.5f, 0.3f, 0.1f };
     [SerializeField] private string[] rank = { "A", "B", "C" ,"D"};
@@ -20,10 +24,10 @@ public class ResultDisplay : MonoBehaviour
     void Start()
     {
         Debug.Log($"criterion.count{criterion.Count()}");
-        SetResult();
+        StartCoroutine(SetResult());
     }
 
-    private void SetResult()
+    private IEnumerator SetResult()
     {
         int maxHealth = gameFlowManager.MaxHealth;
         int restHealth = gameFlowManager.RestHealth;
@@ -38,8 +42,14 @@ public class ResultDisplay : MonoBehaviour
 
         float score = ((float)restHealth / (float)maxHealth + (float)totalCoin / (float)maxCoin + restAirPower / maxAirPower) / 3.0f;
 
-        rankText.SetText($"D");
+        rankText.SetText($"");
         //rankText.SetText($"{rank[criterion.Count()]}");
+
+        yield return new WaitForSecondsRealtime(5.5f);
+
+        returnButtonSeal.SetActive(false);
+
+        rankText.SetText("悪");
         for (int i = criterion.Count() - 1; i >= 0; i--)
         {
             if (score > criterion[i])

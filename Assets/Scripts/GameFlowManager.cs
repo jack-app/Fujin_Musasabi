@@ -10,6 +10,14 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private GameObject gameOver;
     [SerializeField] private GameObject resultCanvas;
     [SerializeField] private int stageNumber;
+
+    //音関係
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip readySound;
+    [SerializeField] private AudioClip goSound;
+
+    [SerializeField] private AudioClip gameOverSound;
+    [SerializeField] private AudioClip gameFinishSound;
     
     private string stageName;
 
@@ -49,6 +57,8 @@ public class GameFlowManager : MonoBehaviour
 
         stageName = SceneManager.GetActiveScene().name;
 
+        audioSource = GetComponent<AudioSource>();
+
         StartCoroutine(GameStart());
     }
 
@@ -68,9 +78,10 @@ public class GameFlowManager : MonoBehaviour
     
     private void Dead()
     {
+        audioSource.PlayOneShot(gameOverSound);
         Time.timeScale = 0;
         messageText.enabled = true;
-        messageText.SetText("GameOver");
+        messageText.SetText("失格！");
         gameOver.SetActive(true);
     }
 
@@ -81,11 +92,14 @@ public class GameFlowManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1.0f);
 
-        messageText.SetText("Ready...");
+        audioSource.PlayOneShot(readySound);
+        messageText.SetText("よーい...");
 
-        yield return new WaitForSecondsRealtime(1.0f);
+        yield return new WaitForSecondsRealtime(3.0f);
 
-        messageText.SetText("GO!");
+        audioSource.Stop();
+        audioSource.PlayOneShot(goSound);
+        messageText.SetText("はじめ！");
 
         yield return new WaitForSecondsRealtime(1.0f);
 
@@ -110,9 +124,10 @@ public class GameFlowManager : MonoBehaviour
         maxCoinCount = coinManager.MaxCoin;
         totalCoinCount = coinManager.CoinCount;
         restAirPower = airFlowGenerator.AirFlowPower;
-        Debug.Log("1");
+        //Debug.Log("1");
         yield return new WaitForSecondsRealtime(1.0f);
-        Debug.Log("2");
+        //Debug.Log("2");
+        audioSource.PlayOneShot(gameFinishSound);
         resultCanvas.SetActive(true);
 
         //yield return new WaitForSecondsRealtime(0.5f);
