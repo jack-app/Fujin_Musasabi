@@ -168,4 +168,4 @@ MonoBehaviour:
   SetStageSpeed: 0
   SetStageRange: 50
   SetSetPower: 0
-  SetPowerPower: 0.01
+  SetPowerPower: 0.009
