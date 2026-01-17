@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinWait: 1
+  hitSound: {fileID: 8300000, guid: 9b44bef16698ad64fb45a0361379cad3, type: 3}
