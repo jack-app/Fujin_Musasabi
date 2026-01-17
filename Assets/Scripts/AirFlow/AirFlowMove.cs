@@ -9,6 +9,7 @@ public class AirFlowMove : MonoBehaviour
     public float SetPower = 1.0f;//それぞれの気流が持つ自身の気流の強さ
     public float PowerPower = 1.0f;//気流の力調製用
     Animator animator;//Animation用
+    public AudioSource blow;
     
     void Start()//component取得
     {
@@ -21,9 +22,15 @@ public class AirFlowMove : MonoBehaviour
         airflowgenerator = obj.GetComponent<AirFlowGenerator>();
         SetPower = airflowgenerator.AirFlowPower;
         airflowgenerator.AirFlowCameraCount += 1;
+        if(airflowgenerator.AirFlowCameraCount==1)
+        {
+            blow=this.GetComponent<AudioSource>();
+            blow.Play();
+        }
         Debug.Log(SetPower);
         if (SetPower > -0.01f && SetPower < 0.01f)//力が小さすぎるときの気流の破壊
         {
+            airflowgenerator.AirFlowCameraCount += -1;
             Destroy(gameObject);
         }
         if (SetPower > 0)//上下反転、アニメーション関係
@@ -56,6 +63,11 @@ public class AirFlowMove : MonoBehaviour
             GameObject obj = GameObject.Find("AirFlowManager");
             airflowgenerator = obj.GetComponent<AirFlowGenerator>();
             airflowgenerator.AirFlowCameraCount += -1;
+            if(airflowgenerator.AirFlowCameraCount==0)
+            {
+                blow=this.GetComponent<AudioSource>();
+                blow.Stop();
+            }
             Destroy(gameObject);
         }
     }
