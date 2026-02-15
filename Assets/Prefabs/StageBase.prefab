@@ -3025,9 +3025,11 @@ MonoBehaviour:
   AirFlowPower: 0
   AirFlowCameraCount: 0
   AirFlowCameraMax: 3
-  AirFlowStageMax: 10
+  AirFlowStageMax: 35
   AirFlowStageCount: 0
-  AirFlowPowerCount: 10000
+  AirFlowPowerCount: 4500
+  AirFlowRed: {fileID: 0}
+  AirFlowBlue: {fileID: 0}
 --- !u!1 &8576116613429471981
 GameObject:
   m_ObjectHideFlags: 0
