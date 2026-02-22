@@ -123,7 +123,7 @@ public class GameFlowManager : MonoBehaviour
         restHealth = playerHealth.CurrentHealth;
         maxCoinCount = coinManager.MaxCoin;
         totalCoinCount = coinManager.CoinCount;
-        restAirPower = airFlowGenerator.AirFlowPower;
+        restAirPower = airFlowGenerator.AirFlowPowerCount;
         //Debug.Log("1");
         yield return new WaitForSecondsRealtime(1.0f);
         //Debug.Log("2");

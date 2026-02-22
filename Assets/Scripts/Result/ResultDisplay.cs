@@ -38,7 +38,8 @@ public class ResultDisplay : MonoBehaviour
 
         restHealthText.SetText($"残りライフ：{restHealth}/{maxHealth}");
         coinCountText.SetText($"コイン獲得数：{totalCoin}/{maxCoin}");
-        airPowerText.SetText($"残り気流量：{Mathf.Floor(restAirPower)}/{maxAirPower}");
+        //airPowerText.SetText($"残り気流量：{Mathf.Floor(restAirPower)}/{maxAirPower}");
+        airPowerText.SetText($"残り気流量：{Mathf.Round(100*restAirPower/maxAirPower)}%");
 
         float score = ((float)restHealth / (float)maxHealth + (float)totalCoin / (float)maxCoin + restAirPower / maxAirPower) / 3.0f;
 
