@@ -167,5 +167,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SetStageSpeed: 0
   SetStageRange: 50
-  SetSetPower: 0
+  SetSetPower: 100
   SetPowerPower: 0.009
