@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   uiManager: {fileID: 6764306693204165847}
-  invincibleDuration: 2
+  gameOverTextObject: {fileID: 0}
 --- !u!95 &8574831556325599023
 Animator:
   serializedVersion: 5
@@ -2797,7 +2797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3322712399287811782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3582,7 +3582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4698564716973647757
 RectTransform:
   m_ObjectHideFlags: 0
