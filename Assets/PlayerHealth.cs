@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 5;
     private int currentHealth;
+    public int CurrentHealth => currentHealth;
 
     public LifeUIManager uiManager;
     public GameObject gameOverTextObject; // ← Textオブジェクトを登録！

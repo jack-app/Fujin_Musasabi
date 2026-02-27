@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   uiManager: {fileID: 6764306693204165847}
-  gameOverTextObject: {fileID: 0}
+  invincibleDuration: 2
 --- !u!95 &8574831556325599023
 Animator:
   serializedVersion: 5

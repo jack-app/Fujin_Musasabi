@@ -1,0 +1,24 @@
+using UnityEngine;
+
+public class CameraFollow : MonoBehaviour
+{
+    [SerializeField]
+    private GameObject targetObject;
+    [SerializeField]
+    private float camOffsetX = 0;
+    private Camera mainCam;
+    // Start is called before the first frame update
+    void Start()
+    {
+        mainCam = Camera.main;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (targetObject != null)
+        {
+            mainCam.transform.position = new Vector3(targetObject.transform.position.x + camOffsetX, mainCam.transform.position.y, mainCam.transform.position.z);
+        }
+    }
+}
