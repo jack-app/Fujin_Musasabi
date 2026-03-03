@@ -71,8 +71,9 @@ public class GameFlowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int pastHealth = restHealth;
         restHealth = playerHealth.CurrentHealth;
-        if (restHealth <= 0)
+        if (restHealth <= 0 && pastHealth != restHealth)
             Dead();
     }
     
