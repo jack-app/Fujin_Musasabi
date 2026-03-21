@@ -70,5 +70,9 @@ public class AirFlowMove : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        if(Time.timeScale == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
