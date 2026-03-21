@@ -12,6 +12,7 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private int stageNumber;
 
     //音関係
+    [Header("音関係")]
     private AudioSource audioSource;
     [SerializeField] private AudioClip readySound;
     [SerializeField] private AudioClip goSound;
@@ -19,7 +20,10 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private AudioClip gameOverSound;
     [SerializeField] private AudioClip gameFinishSound;
     
+    [Header("ステージ名")]
     private string stageName;
+    [SerializeField] private string nextStageName;
+
 
     private PlayerHealth playerHealth;
     private CoinManager coinManager;
@@ -146,5 +150,18 @@ public class GameFlowManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         SceneManager.LoadScene("MenuScene");
+    }
+    
+    public void TryNextStage()
+    {
+        Time.timeScale = 1.0f;
+        if(nextStageName != "")
+        {
+            SceneManager.LoadScene($"{nextStageName}");
+        }
+        else
+        {
+            Debug.Log("シーン名が設定されていません");
+        }
     }
 }
