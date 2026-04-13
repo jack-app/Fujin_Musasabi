@@ -30,7 +30,7 @@ public class AirFlowGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()//AirFlow生成
     {
-        if (AirFlowCameraCount < AirFlowCameraMax&&AirFlowStageCount<AirFlowStageMax)
+        if (AirFlowCameraCount < AirFlowCameraMax&&AirFlowStageCount<AirFlowStageMax&&Time.timeScale!=0)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -48,7 +48,7 @@ public class AirFlowGenerator : MonoBehaviour
                 Debug.Log(AirFlowPower);
                 Debug.Log(clickPosition);
                 clickPosition.y = 0;
-                clickPosition.z = 100;//カメラに映るようにするため
+                clickPosition.z = 15;//カメラに映るようにするため
                 if (AirFlowPowerCount <= Mathf.Abs(AirFlowPower))
                 {
                     if (AirFlowPower > 0)
