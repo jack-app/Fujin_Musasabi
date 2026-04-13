@@ -14,7 +14,7 @@ public class ResultDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rankText;
 
     [Header("ボタン")]
-    [SerializeField] private GameObject returnButtonSeal;
+    [SerializeField] private GameObject[] seals;
 
     [Header("評価基準")]
     [SerializeField] private float[] criterion = { 0.5f, 0.3f, 0.1f };
@@ -48,13 +48,19 @@ public class ResultDisplay : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(5.5f);
 
-        returnButtonSeal.SetActive(false);
-
         rankText.SetText("悪");
         for (int i = criterion.Count() - 1; i >= 0; i--)
         {
             if (score > criterion[i])
                 rankText.SetText($"{rank[i]}");
+        }
+
+        yield return new WaitForSecondsRealtime(0.8f);
+
+        // 各種ボタンを使用可能にする
+        for(int i = 0; i < seals.Count(); i++)
+        {
+            seals[i].SetActive(false);
         }
     }
 
