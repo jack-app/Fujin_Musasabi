@@ -159,11 +159,8 @@ MonoBehaviour:
   nextButton: {fileID: 811000169}
   backButton: {fileID: 499450815}
   sprites:
-  - {fileID: 21300000, guid: 72f8acba402471248b09fb760fdf35b2, type: 3}
-  - {fileID: 21300000, guid: d86393319f8a6a3459b548fd065139fc, type: 3}
-  - {fileID: 21300000, guid: e347c208615a881478a2c9c507e2ca36, type: 3}
-  - {fileID: 21300000, guid: 0e1c5726f5bece248a2623edab3ad629, type: 3}
-  - {fileID: 21300000, guid: 8ca5508d66934324c83787ec9822e68a, type: 3}
+  - {fileID: 21300000, guid: 488123ed533d65141933a7a35ef3d06b, type: 3}
+  - {fileID: 21300000, guid: 6822ca586c7f9d54599aed0253c0d3cc, type: 3}
 --- !u!114 &130370766
 MonoBehaviour:
   m_ObjectHideFlags: 0

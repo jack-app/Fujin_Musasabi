@@ -8,6 +8,7 @@ public class GlideController : MonoBehaviour
     [SerializeField]
     // 通常時の移動速度（右下方向）
     private Vector2 defaultVelocity = new Vector2(5f, -5f);
+    public Vector2 DefaultVelocity => defaultVelocity;
 
     [SerializeField]
     // 元の速度に戻る速さ（値が大きいほど速く戻る）
@@ -37,12 +38,19 @@ public class GlideController : MonoBehaviour
         rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
 
+    public void ChangeDefault(Vector2 speed, bool reflectImm)
+    {
+        defaultVelocity = speed;
+        if(reflectImm)
+            rb.velocity = speed;
+    }
+
     // スペースキーを押したら上向きに力を加える(テスト用)
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             AddVerticalForce(12f);
-        }
+        }*/
     }
 }
