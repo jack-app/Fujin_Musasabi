@@ -75,12 +75,17 @@ public class GameFlowManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    void LateUpdate()
+    {
         int pastHealth = restHealth;
         restHealth = playerHealth.CurrentHealth;
         if (restHealth <= 0 && pastHealth != restHealth)
-            Dead();
+            Invoke("Dead", 0.5f);
     }
-    
+
     private void Dead()
     {
         audioSource.PlayOneShot(gameOverSound);
