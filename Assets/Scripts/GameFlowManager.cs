@@ -83,7 +83,7 @@ public class GameFlowManager : MonoBehaviour
         int pastHealth = restHealth;
         restHealth = playerHealth.CurrentHealth;
         if (restHealth <= 0 && pastHealth != restHealth)
-            Invoke("Dead", 0.5f);
+            Invoke("Dead", 0f);
     }
 
     private void Dead()
