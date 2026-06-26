@@ -26,7 +26,13 @@ public class LifeUIManager : MonoBehaviour
     public void UpdateLifeUI(int currentHealth, int maxHealth)
     {
         // 初回は普通に反映
-        if (previousHealth < 0)
+        /*if (previousHealth < 0)
+        {
+            previousHealth = currentHealth;
+            ApplyLifeState(currentHealth);
+            return;
+        }*/
+        if (currentHealth <= 0)
         {
             previousHealth = currentHealth;
             ApplyLifeState(currentHealth);
