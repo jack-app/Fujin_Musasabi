@@ -3949,7 +3949,7 @@ MonoBehaviour:
   AirFlowCameraMax: 3
   AirFlowStageMax: 35
   AirFlowStageCount: 0
-  AirFlowPowerCount: 4500
+  AirFlowPowerCount: 10000
   AirFlowRed: {fileID: 2864115733397468320}
   AirFlowBlue: {fileID: 855599728722037985}
 --- !u!1 &8533672458047113421
