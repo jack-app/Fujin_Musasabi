@@ -9,7 +9,8 @@ public class GameFlowManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private GameObject gameOver;
     [SerializeField] private GameObject resultCanvas;
-    [SerializeField] private int stageNumber;
+    [SerializeField] public int stageNumber;//Saveのためにpublicにした
+    public bool bgmstop=false;//bgm処理
 
     //音関係
     [Header("音関係")]
@@ -117,12 +118,14 @@ public class GameFlowManager : MonoBehaviour
         messageText.enabled = false;
 
         Time.timeScale = 1;
+        bgmstop=false;
     }
 
     public IEnumerator GameEnd()
     {
         Debug.Log("ゴール！");
 
+        bgmstop=true;
         int stageProgress = PlayerPrefs.GetInt("Progress", 1);
         if(stageNumber >= stageProgress)
         {

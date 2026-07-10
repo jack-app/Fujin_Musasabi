@@ -15,15 +15,18 @@ public class Parallax : MonoBehaviour
         // 背景画像のx軸方向の幅
         length = GetComponent<SpriteRenderer>().bounds.size.x;
         allow=true;
+
     }
     void Update()
     {
+        GameObject gamemanager = GameObject.Find("GameManager");
+        GameFlowManager gameflowmanager = gamemanager.GetComponent<GameFlowManager>();
         if(allow==true&&Time.timeScale==1)
         {
             bgm.Play();
             allow=false;
         }
-        else if(Time.timeScale == 0)
+        else if(gameflowmanager.bgmstop == true)
         {
             bgm.Stop();
         }

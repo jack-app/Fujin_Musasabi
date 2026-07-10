@@ -7,6 +7,7 @@ using UnityEngine;
 public class ResultDisplay : MonoBehaviour
 {
     [SerializeField] private GameFlowManager gameFlowManager;
+    private int saveevaluate;//Saveに渡す評価値
     [Header("各種テキスト")]
     [SerializeField] private TextMeshProUGUI restHealthText;
     [SerializeField] private TextMeshProUGUI coinCountText;
@@ -49,11 +50,18 @@ public class ResultDisplay : MonoBehaviour
         yield return new WaitForSecondsRealtime(5.5f);
 
         rankText.SetText("悪");
+        saveevaluate=1;
         for (int i = criterion.Count() - 1; i >= 0; i--)
         {
             if (score > criterion[i])
+            {
                 rankText.SetText($"{rank[i]}");
+                saveevaluate=4-i;
+            }
         }
+        GameObject gamemanager = GameObject.Find("GameManager");//Save
+        ScoreManager scoremanager = gamemanager.GetComponent<ScoreManager>();
+        scoremanager.Save(gameFlowManager.stageNumber,saveevaluate);
 
         yield return new WaitForSecondsRealtime(0.8f);
 
