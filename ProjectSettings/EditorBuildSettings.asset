@@ -6,20 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/StartScene.unity
+    guid: 2dfb92083bfdbef4185bd54bb04ed33a
+  - enabled: 1
     path: Assets/_Scenes/MenuScene.unity
     guid: b44a101990739e44da57cb4c76742e78
-  - enabled: 0
-    path: Assets/_Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/_Scenes/GameTemplate.unity
-    guid: 3d027863ce73ff54f970cd92846a2f2a
+    path: Assets/_Scenes/Opening.unity
+    guid: d24ee9f47c87d4491acddc1142e04b5f
   - enabled: 1
-    path: Assets/_Scenes/ResultScene.unity
-    guid: 09e1d4d3399cbb343b5b989cfb5a4c45
-  - enabled: 1
-    path: Assets/_Scenes/ModelScene.unity
-    guid: 4409733cc417aa945931ae0c90f94c57
+    path: Assets/_Scenes/Ending.unity
+    guid: b8cf8f6658dd64714b0d2dc53da0de04
   - enabled: 1
     path: Assets/_Scenes/Stage01.unity
     guid: ea416d00253a266448dca4cdbad090b6
@@ -29,4 +26,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Stage03.unity
     guid: 2296284df81a4414b97f8d3049ba0f9b
+  - enabled: 1
+    path: Assets/_Scenes/Stage05.unity
+    guid: a2b1370661387a04d980f443df266c03
+  - enabled: 1
+    path: Assets/_Scenes/Stage04.unity
+    guid: 4409733cc417aa945931ae0c90f94c57
+  - enabled: 1
+    path: Assets/_Scenes/Stage06.unity
+    guid: d7f81c19411b54e77a284d8f2bd2ebb4
+  - enabled: 1
+    path: Assets/_Scenes/Stage07.unity
+    guid: 058f0828ce2814c0498e11595a5ee826
   m_configObjects: {}

@@ -70,6 +70,15 @@ public class ResultDisplay : MonoBehaviour
         {
             seals[i].SetActive(false);
         }
+
+        // ステージ7でのみ使用
+        // エンディングが見れるときはエンディングに飛ばす
+        if(gameFlowManager.stageNumber == 7)
+        {
+            GameObject seal = GameObject.Find("Seal(EndingButton)");
+            if(scoremanager.End() > 0)
+                seal.SetActive(false);
+        }
     }
 
     // Update is called once per frame

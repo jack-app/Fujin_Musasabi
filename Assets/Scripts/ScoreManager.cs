@@ -5,7 +5,13 @@ using System.Linq;
 
 public class ScoreManager : MonoBehaviour
 {
-    public List<int> rating=new List<int>();
+    public List<int> rating = new List<int>();
+
+    void Start()
+    {
+        Load();
+    }
+    
     public void Save(int stage, int evaluate)
     {
         Load();
@@ -34,7 +40,7 @@ public class ScoreManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        /*if (Input.GetKeyDown(KeyCode.A))
         {
             Save(1,0);
         }
@@ -42,6 +48,6 @@ public class ScoreManager : MonoBehaviour
         {
             Load();
             Debug.Log(End());
-        }
+        }*/
     }
 }
