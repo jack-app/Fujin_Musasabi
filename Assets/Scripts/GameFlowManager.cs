@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -23,7 +22,7 @@ public class GameFlowManager : MonoBehaviour
     
     [Header("ステージ名")]
     private string stageName;
-    [SerializeField] private string nextStageName;
+    private string nextStageName;
 
 
     private PlayerHealth playerHealth;
@@ -163,6 +162,9 @@ public class GameFlowManager : MonoBehaviour
     public void TryNextStage()
     {
         Time.timeScale = 1.0f;
+
+        nextStageName = "Stage" + (stageNumber+1).ToString("00");
+
         if(nextStageName != "")
         {
             SceneManager.LoadScene($"{nextStageName}");

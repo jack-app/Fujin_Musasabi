@@ -27,6 +27,7 @@ public class AirFlowText : MonoBehaviour
         airflowgenerator = obj.GetComponent<AirFlowGenerator>();
         AirFlowScore=AirFlowStageMax - airflowgenerator.AirFlowStageCount;
         AirFlowPowerCount = Mathf.Round(airflowgenerator.AirFlowPowerCount);
-        AirFlow.text = "AirFlow:"+AirFlowScore.ToString()+"\nPower:"+AirFlowPowerCount.ToString();//表示
+        //AirFlow.text = "AirFlow:"+AirFlowScore.ToString()+"\nPower:"+AirFlowPowerCount.ToString();//表示
+        AirFlow.text = AirFlowScore.ToString("00");
     }
 }

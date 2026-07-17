@@ -10529,18 +10529,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 727482553620203812, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 727482553620203812, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 727482553620203812, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -180
-      objectReference: {fileID: 0}
     - target: {fileID: 1556197054425805020, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}
       propertyPath: m_Name
       value: StageBase
@@ -10579,14 +10567,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3162042398916248426, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419111848019372891, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3419111848019372891, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}
-      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3429513718238227565, guid: 7a5bc3a819ace6f49a8c7ca61bc944fb, type: 3}

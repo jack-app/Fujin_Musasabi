@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class StageButton : MonoBehaviour
 {
-    [SerializeField] private string stageName;
     [SerializeField] private int stageNumber;
     [SerializeField] private GameObject unreachedImage;
     [SerializeField] private GameObject numberText;
@@ -39,6 +38,7 @@ public class StageButton : MonoBehaviour
     {
         if(stageProgress >= stageNumber)
         {
+            string stageName = "Stage" + stageNumber.ToString("00");
             SceneManager.LoadScene($"{stageName}");
         }
     }

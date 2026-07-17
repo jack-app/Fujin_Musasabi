@@ -41,6 +41,15 @@ public class LoadMenuScene : MonoBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
-        SceneManager.LoadScene("MenuScene");
+        if(PlayerPrefs.GetInt("OP", 0) != 0)
+        {
+            SceneManager.LoadScene("MenuScene");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("OP", 1);
+            SceneManager.LoadScene("Opening");
+        }
+        
     }
 }
